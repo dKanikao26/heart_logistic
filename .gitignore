@@ -1,0 +1,32 @@
+# Ignore virtual environments
+myenv/
+.venv/
+
+# Ignore cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Ignore model and dataset files (optional — remove if you want to commit them)
+*.joblib
+*.pkl
+*.h5
+*.csv
+*.xlsx
+
+# Ignore test artifacts
+*.coverage
+coverage/
+htmlcov/
+
+# Environment variables or secrets
+.env
+
+# VSCode settings
+.vscode/
+
+# OS-specific ignores
+.DS_Store
+Thumbs.db
