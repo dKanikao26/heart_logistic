@@ -31,10 +31,14 @@ class HealthInput(BaseModel):
  
 
 @app.post("/predict")
-def results(data : HealthInput):
-    input_dict = data.dict()
-    df = pd.DataFrame([input_dict])
+def predict(data: HealthInput):
+    input_data = data.dict()
+    df = pd.DataFrame([input_data])
 
-    res = model.predict(df)
-    return res
+    prediction = model.predict(df)[0]                  # e.g., 0 or 1
+    probability = model.predict_proba(df)[0][1]        # probability of class "1" = heart disease risk
 
+    return {
+        "prediction": int(prediction),
+        "probability": float(round(probability, 4))   # optional: round to 4 decimals
+    }
